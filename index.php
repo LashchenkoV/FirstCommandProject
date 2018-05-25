@@ -1,7 +1,19 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: student
- * Date: 24.05.2018
- * Time: 19:49
- */
+define("DOCROOT",__DIR__."/");
+
+define("LIBS_PATH",DOCROOT."libs/");
+define("DATA_PATH",DOCROOT."data/");
+define("STORAGE_PATH",DOCROOT."storage/");
+
+define("TEMPLATES_PATH",DOCROOT."templates/");
+
+define("MODELS_PATH",DOCROOT."models/");
+define("VIEWS_PATH",DOCROOT."views/");
+define("CONTROLLERS_PATH",DOCROOT."controllers/");
+
+
+include LIBS_PATH . "core.php";
+include LIBS_PATH . "auth.php";
+
+
+core_navigate();
