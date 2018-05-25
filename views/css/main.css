@@ -1,0 +1,239 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2c3e50;
+    color: #e6e8ee;
+}
+*{
+    font-family: "Droid Sans Mono", monospace;
+}
+input, select{outline: none;}
+a{transition: 0.1s;text-decoration: none;}
+a,select, input, a:visited{color: #e6e8ee}
+
+#content{
+    display: flex;
+}
+#content .nav{
+    width: 300px;
+}
+.content{
+    width: 100%;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background: #34495e;
+
+}
+.content .title{
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+.title .add-consultation a{margin-right: 35px;transition: 0.1s}
+.title .add-consultation a:hover{color:#16a085 ;}
+.title .date{display: flex}
+.title .time{margin-left: 20px}
+
+table{
+    width: 100%;
+    margin-top: 10px;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+table th, td{
+    height: 20px;
+    text-align: left;
+    padding: 10px;
+}
+table tr:nth-child(even) {
+    background: #48647a;
+}
+table tr{
+     height: 50px;
+}
+table a{
+    font-size: 20px;
+    transition: 0.1s
+}
+.option{
+    text-align: center;
+}
+table a:hover{color:#16a085}
+.consultation-table .name{
+    min-width: 500px;
+}
+.consultation-table .group{
+    min-width: 300px;
+}
+
+/**-------BUTTON-------*/
+
+.button{
+    border: none;
+    font-size: 16px;
+    padding:  10px 15px 10px 15px ;
+    color:#e6e8ee;
+    background: #48647a;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: 0.1s;
+}
+.button:hover{
+    background:#16a085;
+}
+
+/**-------------MODAL-WINDOW----------*/
+#bg-layer {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    display: none;
+}
+.modal{
+    z-index: 2;
+    position: absolute;
+    width: 900px;
+    min-height: 350px;
+    top:50%;
+    left: 50%;
+    margin-top: -175px;
+    margin-left: -450px;
+    background: #34495e;
+    display: none;
+}
+.modal-error{
+    width:300px;
+    min-height: 100px;
+    margin-top: -50px;
+    margin-left: -100px;
+}
+
+.modal-confirm{
+    width:400px;
+    min-height: 200px;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+.modal-confirm p, .modal-error p{
+    margin: 10px;
+}
+.modal-confirm .buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 10px;
+}
+.tab{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background: #48647a;
+}
+.tab div{
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+.tab .button{
+    border-radius: 0;
+}
+.active{
+    background: #16a085;
+}
+
+.tabcontent{
+    display: none;
+    padding: 15px;
+}
+.header-tab{
+    display: flex;
+    flex-direction: column;
+}
+.tabcontent .footer-tab a{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.modal .tab .btn-close{
+    font-size: 25px;
+    margin-right: 10px;
+}
+.btn-close a:hover{
+    color: rgb(255, 88, 59);
+}
+.red:hover{
+    background: rgb(255, 88, 59);
+}
+
+.tabcontent input[type="text"]{
+    background:#34495e;
+    border:1px solid #48657c;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 12px;
+    transition: 0.2s;
+    width: 80%;
+    margin-bottom: 10px;
+}
+.tabcontent input[type="text"]:focus{
+    border:1px solid #6d94b3;
+}
+
+
+/**-----------SELECT--------*/
+.tabcontent select{
+    background: #48647a;
+    padding: 8px;
+    border: 0;
+    border-radius: 5px 5px 0 0;
+    font-size:16px;
+    margin-bottom:10px
+}
+
+/**----------LEFT MENU---------*/
+.left-menu {
+    display:flex;
+    flex-direction:column;
+    background: #2c3e50;
+    width: 250px;
+    padding: 5px;
+    list-style: none;
+}
+
+.left-menu li a {
+    background: #34495e;
+    margin-bottom: 2px;
+    padding-left: 10px;
+    height: 40px;
+    display:flex;
+    align-items:center;
+    font-size: 16px;
+    transition: all 0.2s linear;
+}
+
+.left-menu li a:hover {
+    border-left: 5px solid #16a085;
+}
+
+.left-menu li a {
+    border-left: 5px solid #34495e;
+}
+.left-menu li a i {
+    font-size: 16px;
+    padding-right: 8px;
+}
+
+.left-menu li.selected a {
+    background: #16a085;
+    border-left: 5px solid #16a085;
+}

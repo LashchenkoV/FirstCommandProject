@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/modal.js"></script>
+    <script type="text/javascript" src="js/tabs.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+<div id="bg-layer"></div>
+<div id="content">
+    <div class="modal modal-error" id="error">
+        <div class="tab">
+            <div>
+                <a class="button" href="#">Ошибка!</a>
+            </div>
+            <div class="btn-close">
+                <a href="#"><i  data-modal-close="error" class="fa fa-window-close" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <p>Текст ошибки: Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+    <div class="modal modal-confirm" id="confirm">
+        <div class="tab">
+            <div>
+                <a class="button" href="#">Подтвердите:</a>
+            </div>
+        </div>
+        <p>
+            Действительно ли да?
+        </p>
+        <div class="buttons">
+            <a href="#" class="button">Да</a>
+            <a href="#" class="button red" data-modal-close="confirm">Нет</a>
+        </div>
+    </div>
+    <div class="modal" id = "addStudent">
+        <div class="tab">
+            <div>
+                <a class="button links" data-tab="select" >Добавить в список</a>
+                <a class="button links" data-tab="add">Новый студент</a>
+            </div>
+            <div class="btn-close">
+                <a href="#"><i  data-modal-close="addStudent" class="fa fa-window-close" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <div id="select" class="tabcontent">
+            <div class="info">
+                <div class="header-tab">
+                    <select name="groups" id="groups">
+                        <option selected disabled>Выберите группу</option>
+                        <option value="one">ЕК-2344</option>
+                        <option value="one">ЕК-2344</option>
+                        <option value="one">ЕК-2344</option>
+                    </select>
+                    <select name="students" id="students">
+                        <option selected disabled>Выберите студента</option>
+                        <option value="one">Пупкин Василий Петрович</option>
+                        <option value="one">Пупкин Василий Петрович</option>
+                        <option value="one">Пупкин Василий Петрович</option>
+                    </select>
+                </div>
+                <div class="footer-tab">
+                    <a href="#" class="button">Добавить</a>
+                </div>
+            </div>
+        </div>
+        <div id="add" class="tabcontent">
+            <div class="info">
+                <div class="header-tab">
+                    <select name="groups" id="groups-add-stud">
+                        <option selected disabled>Выберите группу</option>
+                        <option value="one">ЕК-2344</option>
+                        <option value="one">ЕК-2344</option>
+                        <option value="one">ЕК-2344</option>
+                    </select>
+                    <p>
+                        <input type="checkbox" id="addNewGroup" name="addNewGroup">
+                        <label for="addNewGroup"> Не учитывать выбранную группу</label>
+                    </p>
+                    <input type="text" id="group-name" name="addNewGroup" placeholder="Название новой группы">
+                    <input type="text" id="info-user" name="addNewGroup" placeholder="Фамилия Имя">
+                </div>
+                <div class="footer-tab">
+                    <a href="#" class="button">Добавить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <ul class="left-menu">
+            <li class="selected">
+                <a href="index.html">
+                    <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                    Добавить
+                </a>
+            </li>
+            <li>
+                <a href="list.html">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Список
+                </a>
+            </li>
+            <li>
+                <a href="#" data-modal-open="error">
+                    <i class="fa fa-sign-out" aria-hidden="true" ></i>
+                    Modal ERROR
+                </a>
+            </li>
+            <li>
+                <a href="#" data-modal-open="confirm">
+                    <i class="fa fa-sign-out" aria-hidden="true" ></i>
+                    Modal Confirm
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    Выход
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="title">
+            <div class="date">25.03.2018
+                <div class="time">12:15</div>
+            </div>
+            <div class="add-consultation" >
+                <a id="#" href="#"><i class="fa fa-plus" aria-hidden="true" data-modal-open="addStudent"></i></a>
+            </div>
+        </div>
+        <div class="consultation-table">
+            <table>
+                <tr>
+                    <th class="name">Студент</th>
+                    <th class="group">Группа</th>
+                    <th class="option">Опции</th>
+                </tr>
+                <tr>
+                    <td>Пупкин вася Петрович</td>
+                    <td>Пупкин вася Саныч</td>
+                    <td class="option"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                </tr>
+                <tr>
+                    <td>Пупкин вася Петрович</td>
+                    <td>Пупкин вася Саныч</td>
+                    <td class="option"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                </tr>
+                <tr>
+                    <td>Пупкин вася Петрович</td>
+                    <td>Пупкин вася Саныч</td>
+                    <td class="option"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input class="button" type="submit" value="Завершить"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script>document.addEventListener("load",page.init());</script>
+</body>
+</html>
