@@ -168,7 +168,7 @@ table a:hover{color:#16a085}
     font-size: 25px;
     margin-right: 10px;
 }
-.btn-close a:hover, .btn-close:hoverпше{
+.btn-close a:hover, .btn-close:hover{
     color: rgb(255, 88, 59);
 }
 
