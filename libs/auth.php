@@ -18,8 +18,9 @@ function _auth_getUserById($id){
 }
 
 
-function auth_register(string $login, string $pass): bool
+function auth_register(string $login, string $pass1, string $pass2): bool
 {
+    if($pass1!=$pass2 || strlen($pass1)<3) return false;
     $users = _auth_getUsersArray();
     foreach ($users as $user)
         if ($user["login"] == $login) return false;
@@ -27,7 +28,7 @@ function auth_register(string $login, string $pass): bool
     $users[] = [
         "id" =>time().rand(0,9999999),
         "login" => $login,
-        "pass" => md5($pass)
+        "pass" => md5($pass1)
     ];
 
     _auth_saveUsersArray($users);

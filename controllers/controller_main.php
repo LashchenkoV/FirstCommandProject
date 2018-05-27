@@ -7,14 +7,21 @@ function action_index(){
 }
 
 function action_service(){
-    $a = rand(1,10);
-    return core_render_view("service",["a"=>$a]);
+    return core_render_view("service",["a"=>rand(1,10)]);
 }
 
 function action_reg(){
-    if(is_empty(@$_POST["login"],@$_POST["pass"]) || !auth_register($_POST["login"],$_POST["pass"]))
-        return "Произошла ошибка регистрации";
-    header("Location:/");
+    if(is_empty(@$_POST["login"],@$_POST["pass1"],@$_POST["pass2"]) || !auth_register($_POST["login"],$_POST["pass1"],$_POST["pass2"])){
+       $arr = [
+           "register"=>'0',
+           "error"=>"Ошибка регистрации",
+       ];
+    }
+    else{
+        $arr = ["register"=>'1',];
+    }
+    return json_encode($arr);
+
 }
 
 function action_register(){
