@@ -42,7 +42,7 @@ a,select, input, a:visited{color: #e6e8ee}
 table{
     width: 100%;
     margin-top: 10px;
-    border-spacing: 0px;
+    border-spacing: 0;
     border-collapse: collapse;
 }
 table th, td{
@@ -70,7 +70,40 @@ table a:hover{color:#16a085}
 .consultation-table .group{
     min-width: 300px;
 }
+/**---------------LOGIN-AND-REGISTER-----*/
+.form{
+    width: 500px;
+    height: 400px;
+    background-color: #34495e;
+    margin: auto;
+    margin-top: 150px;
+    border-radius: 5%;
+}
+.enter{
+    text-align: center;
+    font-size: 30px;
+    color: #336699;
+    position: relative;
+    top: 50px;
+}
+.menu{
+    width: 300px;
+    height: 100px;
+    margin: auto;
+    position: relative;
+    top: 100px;
+}
+.submit{
+    position: relative;
+    margin-top: 30px;
+}
+.reg .submit{
+    margin-left: 130px;
+}
+.entry .submit{
 
+    margin-left: 190px;
+}
 /**-------BUTTON-------*/
 
 .button{
@@ -176,7 +209,7 @@ table a:hover{color:#16a085}
     background: rgb(255, 88, 59);
 }
 
-.tabcontent input[type="text"]{
+input[type="text"],input[type="password"] {
     background:#34495e;
     border:1px solid #48657c;
     border-radius: 5px;
@@ -186,7 +219,7 @@ table a:hover{color:#16a085}
     width: 80%;
     margin-bottom: 10px;
 }
-.tabcontent input[type="text"]:focus{
+input[type="text"]:focus, input[type="password"]:focus{
     border:1px solid #6d94b3;
 }
 
