@@ -44,21 +44,20 @@
 </div>
 <script>
     modal.init();
-//    page.printDate(document.querySelector(".date"));
-//    page.printTime(document.querySelector(".time"));
+    page.printDate(document.querySelector(".date"));
+    page.printTime(document.querySelector(".time"));
     document.getElementById("startConsult").addEventListener("click",function () {
        AJAX.post("/admin/start",[],function (text) {
-           JSON.parse(text);
-           console.log(text);
-           if(text.start == '0'){
-               modal.open(modalError, text.error);
+           text = JSON.parse(text);
+           if(text.start === '0'){
+               modal.open(document.getElementById("error"), text.error);
                return false;
            }
            else {
                let content = document.querySelector(".content");
                content.innerHTML = text.text;
-//               page.printDate(document.querySelector(".date"));
-//               page.printTime(document.querySelector(".time"));
+               page.printDate(document.querySelector(".date"));
+               page.printTime(document.querySelector(".time"));
            }
        });
     });

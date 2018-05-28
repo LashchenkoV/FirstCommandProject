@@ -14,6 +14,7 @@
     <script type="text/javascript" src="/content/js/handlePagination.js"></script>
 </head>
 <body>
+<div id="bg-layer"></div>
 <div id="content">
     <?=$content?>
 </div>

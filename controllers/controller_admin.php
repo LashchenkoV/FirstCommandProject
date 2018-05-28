@@ -14,7 +14,7 @@ function action_startConsult(){
     if($_POST ||  _startConsult()==false){
         $arr = [
           "start"=>"0",
-          "error"=>"Ошибка старта консультации!",
+          "error"=>"Ошибка старта консультации!"
         ];
     }
     else {

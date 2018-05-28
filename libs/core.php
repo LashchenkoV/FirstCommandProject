@@ -2,7 +2,6 @@
 
 function core_getData(string $name):array {
     return include DATA_PATH.$name.".php";
-
 }
 
 function core_saveArrayToFile(string $name, array $arr):void{
@@ -59,7 +58,6 @@ function is_empty():bool {
     foreach (func_get_args() as $arg) if(empty($arg)) return true;
     return false;
 }
-
 
 function core_navigate():void{
     $routes = core_getData("routes");

@@ -14,11 +14,11 @@ function action_reg(){
     if(is_empty(@$_POST["login"],@$_POST["pass1"],@$_POST["pass2"]) || !auth_register($_POST["login"],$_POST["pass1"],$_POST["pass2"])){
        $arr = [
            "register"=>'0',
-           "error"=>"Ошибка регистрации",
+           "error"=>"Ошибка регистрации"
        ];
     }
     else{
-        $arr = ["register"=>'1',];
+        $arr = ["register"=>'1'];
     }
     return json_encode($arr);
 
@@ -31,11 +31,11 @@ function action_login(){
     if(is_empty(@$_POST["login"],@$_POST["pass"]) || !auth_login($_POST["login"],$_POST["pass"])){
         $arr = [
             "auth"=>'0',
-            "error"=>"Ошибка авторизации",
+            "error"=>"Ошибка авторизации"
         ];
     }
     else
-        $arr = ["auth"=>'1',];
+        $arr = ["auth"=>'1'];
     return json_encode($arr);
 }
 

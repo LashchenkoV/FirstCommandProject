@@ -19,7 +19,8 @@ let modal = {
     open:function (modal, text) {
         if(modal === undefined) return false;
         if(modal.style.display === "block") return false;
-        modal.querySelector("#modal-text").innerHTML = text;
+        if(text!== undefined)
+            modal.querySelector("#modal-text").innerHTML = text;
         modal.style.display = "block";
         document.getElementById("bg-layer").style.display="block";
     },
