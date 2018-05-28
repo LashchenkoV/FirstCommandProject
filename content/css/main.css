@@ -36,8 +36,8 @@ a,select, input, a:visited{color: #e6e8ee}
 }
 .title .add-consultation a{margin-right: 35px;transition: 0.1s}
 .title .add-consultation a:hover{color:#16a085 ;}
-.title .date{display: flex}
-.title .time{margin-left: 20px}
+.title .info{display: flex}
+.title .time{margin-left: 40px}
 
 table{
     width: 100%;

@@ -17,9 +17,5 @@
 <div id="content">
     <?=$content?>
 </div>
-<script>
-    //modal.init();
-    //tabs.init();
-</script>
 </body>
 </html>
