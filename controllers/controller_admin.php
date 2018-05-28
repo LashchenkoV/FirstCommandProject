@@ -1,4 +1,8 @@
 <?php
 function action_index(){
-    echo "Админка";
+    return core_render("consault",["title"=>"Админ панель"], "admin");
+}
+
+function action_list(){
+    return core_render("listConsult",["title"=>"Список консультаций"], "admin");
 }

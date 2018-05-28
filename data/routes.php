@@ -2,6 +2,7 @@
 return [
     ""=>"main@index",
     "admin"=>'admin@index',
+    "admin/list"=>'admin@list',
     "login"=>"main@login",
     "register"=>"main@register",
     "reg"=>"main@reg",

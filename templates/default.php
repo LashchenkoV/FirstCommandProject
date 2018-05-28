@@ -1,3 +1,4 @@
+<?php if(auth_is_auth()) header("Location:/admin")?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,8 +28,6 @@
     </div>
     <p id="contentError"></p>
 </div>
-<?php if(auth_is_auth()) header("Location:/admin")?>
-
     <?=$content?>
 <script>
     modal.init();
