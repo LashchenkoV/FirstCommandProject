@@ -1,14 +1,3 @@
-<div class="modal modal-error" id="error">
-    <div class="tab">
-        <div>
-            <a class="button" href="#">Ошибка!</a>
-        </div>
-        <div class="btn-close">
-            <a href="#"><i  data-modal-close="error" class="fa fa-window-close" aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <p id="contentError"></p>
-</div>
 <div class="form reg" >
     <div class="enter">РЕГИСТРАЦИЯ</div>
     <div class="add" >
@@ -20,3 +9,6 @@
         <input id="register" class="submit button" type="submit" value="Зарегистрироваться">
     </div>
 </div>
+<script>
+    register.init();
+</script>

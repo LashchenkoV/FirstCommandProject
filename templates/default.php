@@ -11,14 +11,27 @@
     <script type="text/javascript" src="/content/js/script.js"></script>
     <script type="text/javascript" src="/content/js/ajax.js"></script>
     <script type="text/javascript" src="/content/js/register.js"></script>
+    <script type="text/javascript" src="/content/js/entry.js"></script>
     <script type="text/javascript" src="/content/js/modal.js"></script>
 </head>
 <body>
 <div id="bg-layer"></div>
+<div class="modal modal-error" id="error">
+    <div class="tab">
+        <div>
+            <a class="button" href="#">Ошибка!</a>
+        </div>
+        <div class="btn-close">
+            <a href="#"><i  data-modal-close="error" class="fa fa-window-close" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <p id="contentError"></p>
+</div>
+<?php if(auth_is_auth()) header("Location:/admin")?>
+
     <?=$content?>
 <script>
     modal.init();
-    register.init();
 </script>
 </body>
 </html>

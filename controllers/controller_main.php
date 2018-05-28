@@ -28,8 +28,15 @@ function action_register(){
     return core_render("register",["title"=>"My site::Регистрация","m"=>action_service()]);
 }
 function action_login(){
-    if(is_empty(@$_POST["login"],@$_POST["pass"]) || !auth_login($_POST["login"],$_POST["pass"])) return "Произошла ошибка авторизации";
-    header("Location:/");
+    if(is_empty(@$_POST["login"],@$_POST["pass"]) || !auth_login($_POST["login"],$_POST["pass"])){
+        $arr = [
+            "auth"=>'0',
+            "error"=>"Ошибка авторизации",
+        ];
+    }
+    else
+        $arr = ["auth"=>'1',];
+    return json_encode($arr);
 }
 
 function action_logout(){
