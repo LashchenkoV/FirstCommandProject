@@ -1,9 +1,4 @@
 let page = {
-    changeContentModal:function (modal,content) {
-        let err = modal.querySelector("#contentError");
-        err.innerText = '';
-        err.innerText = content;
-    },
     printDate:function(div){
         let date = new Date();
         div.innerHTML = date.getFullYear()+"-"+this.addZero(date.getMonth()+1)+"-"+this.addZero(date.getDate());

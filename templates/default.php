@@ -26,7 +26,7 @@
             <a href="#"><i  data-modal-close="error" class="fa fa-window-close" aria-hidden="true"></i></a>
         </div>
     </div>
-    <p id="contentError"></p>
+    <p id="modal-text"></p>
 </div>
     <?=$content?>
 <script>
