@@ -23,7 +23,6 @@ let register = {
             })
         } else
             modal.open(modalWindow,"Ошибка");
-
         })
     },
 
