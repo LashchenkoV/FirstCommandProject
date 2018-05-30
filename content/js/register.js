@@ -16,7 +16,7 @@ let register = {
             AJAX.post("/reg", {login:login, pass1:pass1, pass2:pass2}, function (text) {
                 let res =  JSON.parse(text);
                 if(res.register !== '0')
-                    window.location.href="/";
+                    window.location.href="/admin";
                 else {
                     modal.open(modalWindow, res.error)
                 }
