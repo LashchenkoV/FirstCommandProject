@@ -1,6 +1,6 @@
 <?php
 function action_index(){
-    return core_render("consult",["title"=>"Админ панель","students"=>consult_getStudents()],"admin");
+    return core_render("consult",["title"=>"Админ панель","table"=>action_getTableStudentsView()],"admin");
 }
 
 function action_list(){
@@ -8,9 +8,11 @@ function action_list(){
 }
 
 function action_getTableStudentsView(){
-    $data = ["activeStudents"=>consult_getStudents()];
-    return core_render_view("tableConsultation",$data);
+    $data = ["students"=>consult_getStudents()];
+    return core_render_view("tableStudents",$data);
 }
+
+
 function action_addStudentInConsultAndJson(){
     if(is_empty(@$_POST['info'],@$_POST['group']) || !consult_addStudent($_POST['group'],$_POST['info']))
         return json_encode(["status"=>'0',"error"=>"Ошибка добавления!"]);

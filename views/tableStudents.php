@@ -15,11 +15,11 @@
                 <th class="group">Группа</th>
                 <th class="option">Опции</th>
             </tr>
-            <?php foreach ($activeStudents as $student):?>
+            <?php foreach ($students as $student):?>
                 <tr>
                     <td><?=$student['info']?></td>
                     <td><?=$student['group']?></td>
-                    <td class="option btn-close"><a href="#"><i class="fa fa-times" aria-hidden="true" data-modal-open="confirm"></i></a></td>
+                    <td class="option btn-close"><a href="#" data-id="<?=$student['id']?>"><i class="fa fa-times" aria-hidden="true" data-modal-open="confirm" data-id="<?=$student['id']?>"></i></a></td>
                 </tr>
             <?php endforeach;?>
             <tr>
