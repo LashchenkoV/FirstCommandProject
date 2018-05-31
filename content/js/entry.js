@@ -9,8 +9,7 @@ let entry = {
             let login = document.getElementById("entryLog").value;
             let modalWindow = document.getElementById("error");
             if(entryPass.length===0 || login.length===0){
-                page.changeContentModal(modalWindow,"Ошибка");
-                modal.open(modalWindow);
+                modal.open(modalWindow,"Ошибка");
                 return false;
             }
             AJAX.post("/login",{login:login,pass:entryPass},function (text) {
