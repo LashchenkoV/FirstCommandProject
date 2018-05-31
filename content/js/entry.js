@@ -18,8 +18,7 @@ let entry = {
                 if(res.auth !== '0')
                     window.location.href = "/admin";
                 else {
-                    page.changeContentModal(modalWindow, res.error);
-                    modal.open(modalWindow)
+                    modal.open(modalWindow, res.error)
                 }
             })
         })

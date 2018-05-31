@@ -19,16 +19,9 @@ function action_addStudentInConsultAndJson(){
 }
 
 function action_startConsult(){
-    if($_POST ||  _consultStart()==false){
-        $arr = [
-          "start"=>"0",
-          "error"=>"Ошибка старта консультации!"
-        ];
-    }
-    else {
-        $arr = [
-            "start"=>"1",
-        ];
-    }
-    return json_encode($arr);
+    if($_POST ||  _consultStart()==false)
+        return json_encode(["start"=>"0", "error"=>"Ошибка старта консультации!"]);
+    else
+        return json_encode(["start"=>"1"]);
+
 }

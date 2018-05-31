@@ -175,9 +175,8 @@
                     modal.open(document.getElementById("error"), text.error);
                     return false;
                 }
-                else {
+                else
                     window.location.href = "/admin"
-                }
             });
         });
     </script>
