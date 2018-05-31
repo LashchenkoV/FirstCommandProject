@@ -1,6 +1,6 @@
 <?php
 function action_index(){
-    return core_render("consult",["title"=>"Админ панель"], "admin");
+    return core_render("consult",["title"=>"Админ панель","students"=>consult_getStudents()],"admin");
 }
 
 function action_list(){

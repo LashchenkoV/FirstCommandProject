@@ -25,7 +25,7 @@ function _consultStart():bool{
 }
 function consult_getStudents()
 {
-    $idConsult = $_SESSION['id_active_consult'];
+    $idConsult = @$_SESSION['id_active_consult'];
     $studentsOnConsult = core_loadArrayFromFile('studentsOnConsult');
     $studOnConsult = [];
     foreach ($studentsOnConsult as $student) {
