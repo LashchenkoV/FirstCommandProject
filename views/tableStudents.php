@@ -19,7 +19,7 @@
                 <tr>
                     <td><?=$student['info']?></td>
                     <td><?=$student['group']?></td>
-                    <td class="option btn-close"><a href="#" data-id="<?=$student['id']?>"><i class="fa fa-times" aria-hidden="true" data-modal-open="confirm" data-id="<?=$student['id']?>"></i></a></td>
+                    <td class="option btn-close"><a href="#" data-id="<?=$student['id']?>" class="removeStudent"><i class="fa fa-times" aria-hidden="true" data-modal-open="confirm"></i></a></td>
                 </tr>
             <?php endforeach;?>
             <tr>
@@ -30,7 +30,7 @@
         </table>
     </div>
     <script>
-        modal.init();
+        //modal.init();
         tabs.init();
         /**
          * Скрытие и появление выбора групы
@@ -68,6 +68,19 @@
         });
         page.printDate(document.querySelector(".date"));
         page.printTime(document.querySelector(".time"));
+
+        document.addEventListener("click", function (e) {
+            //let removeStudent = document.getElementById("removeStudent");
+            if(e.target.matches("a[data-id].removeStudent")){
+                let a = e.target.getAttribute("a");
+
+
+            }else if(e.target.matches("a[data-id].removeStudent i")){
+               let id = e.target.parentNode.getAttribute("data-id");
+               console.log(id);
+            }
+        })
+
     </script>
 <?php else:?>
     <div class="title">
