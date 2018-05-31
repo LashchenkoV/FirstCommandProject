@@ -9,6 +9,20 @@
     </div>
     <p id="modal-text">Текст ошибки: Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 </div>
+<div class="modal modal-confirm" id="confirm">
+    <div class="tab">
+        <div>
+            <a class="button" href="#">Подтвердите:</a>
+        </div>
+    </div>
+    <p>
+        Действительно ли да?
+    </p>
+    <div class="buttons">
+        <a href="#" class="button">Да</a>
+        <a href="#" class="button red" data-modal-close="confirm">Нет</a>
+    </div>
+</div>
 <div class="nav">
     <ul id="navigation" class="left-menu">
         <li class="selected">

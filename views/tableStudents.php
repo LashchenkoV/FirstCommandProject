@@ -30,7 +30,7 @@
         </table>
     </div>
     <script>
-        //modal.init();
+        modal.init();
         tabs.init();
         /**
          * Скрытие и появление выбора групы
