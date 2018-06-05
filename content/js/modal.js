@@ -20,7 +20,7 @@ let modal = {
         if(modal === undefined) return false;
         if(modal.style.display === "block") return false;
         if(text!== undefined)
-            modal.querySelector("#modal-text").innerHTML = text;
+            modal.querySelector(".modal-text").innerHTML = text;
         modal.style.display = "block";
         document.getElementById("bg-layer").style.display="block";
     },

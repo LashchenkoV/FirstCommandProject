@@ -23,8 +23,23 @@ function _consultStart():bool{
     core_appendToArrayInFile("consult", $data);
     return true;
 }
-function consult_getStudents()
-{
+
+function consult_delStudent(int $id):bool{
+    $studentsOnConsult = core_loadArrayFromFile('studentsOnConsult');
+    $idInArr = -1;
+    for($i=0;$i<count($studentsOnConsult);$i++){
+        if($studentsOnConsult[$i]['id_student']==$id){
+            $idInArr = $i;
+            break;
+        }
+    }
+    if($idInArr == -1) return false;
+    array_splice($studentsOnConsult, $idInArr,1);
+    core_saveArrayToFile("studentsOnConsult", $studentsOnConsult);
+    return true;
+
+}
+function getStudentOnActiveConsult(){
     $idConsult = @$_SESSION['id_active_consult'];
     $studentsOnConsult = core_loadArrayFromFile('studentsOnConsult');
     $studOnConsult = [];
@@ -33,6 +48,12 @@ function consult_getStudents()
             $studOnConsult[] = $student;
         }
     }
+    return $studOnConsult;
+
+}
+function consult_getStudents()
+{
+    $studOnConsult =getStudentOnActiveConsult();
     $students = core_loadArrayFromFile('students');
     $dataStudents = [];
     foreach ($students as $student) {

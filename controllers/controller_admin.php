@@ -11,10 +11,15 @@ function action_getTableStudentsView(){
     $data = ["students"=>consult_getStudents()];
     return core_render_view("tableStudents",$data);
 }
-
+function action_deleteStudentFromConsult(){
+    if(is_empty(@$_POST['id']) || !consult_delStudent(@$_POST['id']))
+        return json_encode(["status"=>'0', "id"=>@$_POST['id']]);
+    else
+        return json_encode(["status"=>'1']);
+}
 
 function action_addStudentInConsultAndJson(){
-    if(is_empty(@$_POST['info'],@$_POST['group']) || !consult_addStudent($_POST['group'],$_POST['info']))
+    if(is_empty(@$_POST['info'],@$_POST['group']) || !consult_addStudent(@$_POST['group'],@$_POST['info']))
         return json_encode(["status"=>'0',"error"=>"Ошибка добавления!"]);
     else
         return json_encode(["status"=>'1']);

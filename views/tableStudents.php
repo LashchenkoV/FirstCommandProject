@@ -16,10 +16,10 @@
                 <th class="option">Опции</th>
             </tr>
             <?php foreach ($students as $student):?>
-                <tr>
+                <tr id="<?=$student['id']?>">
                     <td><?=$student['info']?></td>
                     <td><?=$student['group']?></td>
-                    <td class="option btn-close"><a href="#" data-id="<?=$student['id']?>" class="removeStudent"><i class="fa fa-times" aria-hidden="true" data-modal-open="confirm"></i></a></td>
+                    <td class="option btn-close"><a href="#" data-id="<?=$student['id']?>" class="removeStudent"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                 </tr>
             <?php endforeach;?>
             <tr>
@@ -69,17 +69,32 @@
         page.printDate(document.querySelector(".date"));
         page.printTime(document.querySelector(".time"));
 
+        //Открытие модального окна подтверждения удаления студента из консультации
         document.addEventListener("click", function (e) {
-            //let removeStudent = document.getElementById("removeStudent");
-            if(e.target.matches("a[data-id].removeStudent")){
-                let a = e.target.getAttribute("a");
+            if(!e.target.matches("a[data-id].removeStudent i")) return false;
+            let modalConfirm = document.getElementById("confirm");
+            if(modalConfirm === undefined) return false;
+            let id = e.target.parentNode.getAttribute("data-id");
+            modalConfirm.querySelector("#confirm-yes").setAttribute("data-id",id);
+            modal.open(modalConfirm, "Удалить студента "+id+" из консультации?");
+        });
+        document.getElementById("confirm-yes").addEventListener("click", function (e) {
+            let id = e.target.getAttribute("data-id");
+            let modalElem = document.getElementById("confirm");
+            AJAX.post("/admin/deleteStudentFromConsult",{id:id},function (text) {
+                text = JSON.parse(text);
+                if(text.status == 1) {
+                    let tr = document.getElementById(id);
+                    tr.style.display = "none";
+                    modal.close(modalElem)
+                }
+                else{
+                    modal.close(modalElem);
+                    modal.open(document.getElementById("error"),"Ошибка удаления студента "+text.id)
+                }
 
-
-            }else if(e.target.matches("a[data-id].removeStudent i")){
-               let id = e.target.parentNode.getAttribute("data-id");
-               console.log(id);
-            }
-        })
+            })
+        });
 
     </script>
 <?php else:?>
@@ -103,9 +118,9 @@
                     modal.open(document.getElementById("error"), text.error);
                     return false;
                 }
-                else {
+                else
                     window.location.href = "/admin"
-                }
+
             });
         });
     </script>

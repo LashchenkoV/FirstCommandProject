@@ -7,7 +7,7 @@
             <a href="#"><i  data-modal-close="error" class="fa fa-window-close" aria-hidden="true"></i></a>
         </div>
     </div>
-    <p id="modal-text">Текст ошибки: Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p class="modal-text"></p>
 </div>
 <div class="modal modal-confirm" id="confirm">
     <div class="tab">
@@ -15,11 +15,9 @@
             <a class="button" href="#">Подтвердите:</a>
         </div>
     </div>
-    <p>
-        Действительно ли да?
-    </p>
+    <p class="modal-text"></p>
     <div class="buttons">
-        <a href="#" class="button">Да</a>
+        <a href="#" class="button" id="confirm-yes" data-id="">Да</a>
         <a href="#" class="button red" data-modal-close="confirm">Нет</a>
     </div>
 </div>
