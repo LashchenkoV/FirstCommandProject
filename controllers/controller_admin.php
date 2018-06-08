@@ -6,6 +6,13 @@ function action_index(){
     ],"admin");
 }
 
+function action_list(){
+    return core_render("listConsult", [
+        "title"=>"Список консультаций",
+        "listConsult"=>consult_getListConsult()
+    ],"admin");
+}
+
 function action_getModalAddStudent(){
     return core_render_view("modalAddStudent",["listGroups"=>consult_getGroupList()]);
 }

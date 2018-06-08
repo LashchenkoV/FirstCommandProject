@@ -159,16 +159,25 @@ function consult_getInfo($id){
     $time = '';
     foreach ($consults as $consult) {
         if ($consult['id'] == $id) {
-            $time = date("H:i:s", mktime(0, 0, strtotime($consult['time_end'])-strtotime($consult['time_start'])));
+            $time = core_getDeltaTime($consult['time_end'],$consult['time_start']);
             break;
         }
     }
+    return ["time"=>$time,"countStudent"=>consult_getCountStudentOnConsult($id)];
+}
+
+/**
+ * Возвращает колличество людей посетивших консультацию
+ * @param $idConsult
+ * @return int
+ */
+function consult_getCountStudentOnConsult($idConsult){
     $studentsOnConsult = core_loadArrayFromFile('studentsOnConsult');
     $i = 0;
     foreach ($studentsOnConsult as $student) {
-        if ($student['id_consult'] == $id) $i++;
+        if ($student['id_consult'] == $idConsult) $i++;
     }
-    return ["time"=>$time,"countStudent"=>$i];
+    return $i;
 }
 
 /**
@@ -272,4 +281,21 @@ function consult_addNewGroup(string $group):int{
     ];
     core_appendToArrayInFile("groups", $data);
     return ID_GROUP;
+}
+
+/**
+ * Возвращает список консультаций пользователя
+ * @return array
+ */
+function consult_getListConsult():array {
+    $consults = core_loadArrayFromFile("consult");
+    $list = [];
+    foreach ($consults as $consult){
+        if($consult['id_admin']==$_SESSION['user_id']){
+            $consult['delta_time'] = $consult['time_end']==''?"Не закончена":core_getDeltaTime($consult['time_end'],$consult['time_start']);
+            $consult['count_student'] = $consult['time_end']==''?"-":consult_getCountStudentOnConsult($consult['id']);
+            $list[]=$consult;
+        }
+    }
+    return $list;
 }

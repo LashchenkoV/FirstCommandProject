@@ -63,6 +63,10 @@ function getRandomId():int{
     return time().rand(0,9999);
 }
 
+function core_getDeltaTime($end,$start){
+    return date("H:i:s", mktime(0, 0, strtotime($end)-strtotime($start)));
+}
+
 function core_navigate():void{
     $routes = core_getData("routes");
     $url = trim(explode("?",$_SERVER["REQUEST_URI"])[0],"/");
