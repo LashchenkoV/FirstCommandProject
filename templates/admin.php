@@ -1,5 +1,4 @@
 <?php if(!auth_is_auth()) header("Location:/")?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

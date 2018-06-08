@@ -9,6 +9,20 @@
     </div>
     <p class="modal-text"></p>
 </div>
+<div class="modal modal-confirm" id="info">
+    <div class="tab">
+        <div>
+            <a class="button" href="#">Консультация завершена</a>
+        </div>
+        <div class="btn-close">
+            <a href="#"><i class="fa fa-window-close endConsultOk" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <p class="modal-text"></p>
+    <div class="buttons">
+        <a href="#" class="button endConsultOk">Ок</a>
+    </div>
+</div>
 <div class="modal modal-confirm" id="confirm">
     <div class="tab">
         <div>
@@ -43,53 +57,7 @@
         </li>
     </ul>
 </div>
-<div class="modal" id = "addStudent">
-    <div class="tab">
-        <div>
-            <a class="button links" data-tab="select" >Добавить в список</a>
-            <a class="button links" data-tab="add">Новый студент</a>
-        </div>
-        <div class="btn-close">
-            <a href="#"><i  data-modal-close="addStudent" class="fa fa-window-close" aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <div id="select" class="tabcontent">
-        <div class="info">
-            <div class="header-tab">
-                <select name="groups" id="groups">
-                    <option selected disabled>Выберите группу</option>
-                </select>
-                <select name="students" id="students">
-                    <option selected disabled>Выберите студента</option>
-                </select>
-            </div>
-            <div class="footer-tab">
-                <a href="#" id="addNewStudentInConsult" class="button">Добавить</a>
-            </div>
-        </div>
-    </div>
-    <div id="add" class="tabcontent">
-        <div class="info">
-            <div class="header-tab">
-                <p>
-                    <input type="checkbox" id="check-addNewGroup" name="addNewGroup">
-                    <label for="addNewGroup"> Не учитывать выбранную группу</label>
-                </p>
-                <select name="groups" id="groups-add-stud">
-                    <option selected disabled>Выберите группу</option>
-                    <option value="one">ЕК-2344</option>
-                    <option value="one">ЕК-2344</option>
-                    <option value="one">ЕК-2344</option>
-                </select>
-                <input type="text" id="group-name" name="addNewGroup" style="display: none" placeholder="Название новой группы">
-                <input type="text" id="info-user" name="addNewGroup" placeholder="Фамилия Имя">
-            </div>
-            <div class="footer-tab">
-                <a id="addNewStudent" href="#" class="button">Добавить</a>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="modal" id = "addStudent"></div>
 <div class="content">
     <?=$table?>
 </div>

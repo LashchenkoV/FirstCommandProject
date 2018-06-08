@@ -26,7 +26,7 @@ function auth_register(string $login, string $pass1, string $pass2): bool
         if ($user["login"] == $login) return false;
 
     $users[] = [
-        "id" =>time().rand(0,9999999),
+        "id" =>getRandomId(),
         "login" => $login,
         "pass" => md5($pass1)
     ];

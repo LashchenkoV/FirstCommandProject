@@ -32,7 +32,7 @@ function core_removeFromArrayInFile(string $name, int $index):void{
 function _core_render_view($view,$data){
     ob_start();
     extract($data);
-    include $view.".php";
+    include "$view.php";
     return ob_get_clean();
 }
 
@@ -51,12 +51,16 @@ function core_render(string $view, array $data=[], string $templates="default"):
 
 
 function core_loadModel(string $name):void{
-  include MODELS_PATH.$name.".php";
+  include MODELS_PATH."$name.php";
 }
 
 function is_empty():bool {
     foreach (func_get_args() as $arg) if(empty($arg)) return true;
     return false;
+}
+
+function getRandomId():int{
+    return time().rand(0,9999);
 }
 
 function core_navigate():void{
