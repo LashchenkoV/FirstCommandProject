@@ -1,11 +1,20 @@
 <?php
+/**
+ * Главная страница админ панели
+ * @return string
+ */
 function action_index(){
     return core_render("consult",[
         "title"=>"Админ панель",
-        "table"=>action_getTableStudentsView(),
+        "contentStartConsult"=>get_contentStartConsult(),
+        "contentNoStartConsult"=>get_contentNoStartConsult()
     ],"admin");
 }
 
+/**
+ * Страница всех консультаций
+ * @return string
+ */
 function action_list(){
     return core_render("listConsult", [
         "title"=>"Список консультаций",
@@ -13,24 +22,31 @@ function action_list(){
     ],"admin");
 }
 
-function action_getModalAddStudent(){
-    return core_render_view("modalAddStudent",["listGroups"=>consult_getGroupList()]);
-}
-function action_getGroupList(){
-    return json_encode(consult_getGroupList());
-}
-function action_getStudentList(){
-    if(is_empty(@$_POST['id_group'])) return false;
-    return json_encode(consult_getStudentList($_POST['id_group']));
-}
 function action_list_consult(){
     return core_render("listConsult",["title"=>"Список консультаций"], "admin");
 }
 
-function action_getTableStudentsView(){
-    $data = ["students"=>consult_getListStudentsForTable()];
-    return core_render_view("tableStudents",$data);
+function get_contentNoStartConsult(){
+    return core_render_view("contentNoStartConsult");
 }
+function get_contentStartConsult(){
+    $data = ["students"=>consult_getListStudentsForTable()];
+    return core_render_view("contentStartConsult",$data);
+}
+
+function action_getModalAddStudent(){
+    return core_render_view("modalAddStudent");
+}
+
+function action_getGroupList(){
+    return json_encode(consult_getGroupList());
+}
+
+function action_getStudentList(){
+    if(is_empty(@$_POST['id_group'])) return false;
+    return json_encode(consult_getStudentList($_POST['id_group']));
+}
+
 function action_deleteStudentFromConsult(){
     if(is_empty(@$_POST['id']) || !consult_delStudent((int)@$_POST['id']))
         return json_encode(["status"=>'0', 'info'=>consult_getInfoStudent($_POST['id'])]);

@@ -21,13 +21,36 @@ let modal = {
         if(modal.style.display === "block") return false;
         if(text!== undefined)
             modal.querySelector(".modal-text").innerHTML = text;
-        modal.style.display = "block";
-        document.getElementById("bg-layer").style.display="block";
+        this.animeOpen(modal);
     },
     close:function (modal) {
         if(modal === undefined) return false;
         if(modal.style.display === "none") return false;
-        modal.style.display = "none";
-        document.getElementById("bg-layer").style.display="none";
+        this.animeClose(modal);
+    },
+    animeClose:function (modal){
+        anime({
+            targets: modal,
+            scaleY:0,
+            duration:500,
+            complete:function () {
+                document.getElementById("bg-layer").style.display="none";
+                modal.style.display = 'none';
+            },
+            easing: 'easeInOutQuad',
+
+        });
+    },
+    animeOpen:function (modal) {
+        anime({
+            targets: modal,
+            scaleY:1,
+            duration:500,
+            run:function () {
+                modal.style.display = "block";
+                document.getElementById("bg-layer").style.display="block";
+            },
+            easing: 'easeInCubic',
+        });
     }
 };

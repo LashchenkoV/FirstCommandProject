@@ -59,5 +59,10 @@
 </div>
 <div class="modal" id = "addStudent"></div>
 <div class="content">
-    <?=$table?>
+    <?php
+        if(consult_isStart())
+            echo $contentStartConsult;
+        else
+            echo $contentNoStartConsult;
+    ?>
 </div>

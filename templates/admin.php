@@ -11,6 +11,7 @@
     <script type="text/javascript" src="/content/js/modal.js"></script>
     <script type="text/javascript" src="/content/js/tabs.js"></script>
     <script type="text/javascript" src="/content/js/handlePagination.js"></script>
+    <script type="text/javascript" src="/content/js/anime.min.js"></script>
 </head>
 <body>
 <div id="bg-layer"></div>

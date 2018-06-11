@@ -18,7 +18,7 @@ function action_reg(){
 }
 
 function action_register(){
-    return core_render("register",["title"=>"Регистрация","m"=>action_service()]);
+    return core_render("register",["title"=>"Регистрация"]);
 }
 function action_login(){
     if(is_empty(@$_POST["login"],@$_POST["pass"]) || !auth_login($_POST["login"],$_POST["pass"])) {
@@ -27,7 +27,8 @@ function action_login(){
             "error" => "Ошибка авторизации"
         ]);
     }
-    return json_encode(["auth"=>'1']);}
+    return json_encode(["auth"=>'1']);
+}
 
 function action_logout(){
     auth_logout();

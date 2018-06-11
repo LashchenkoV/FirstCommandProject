@@ -65,10 +65,10 @@ table a{
 }
 table a:hover{color:#16a085}
 .consultation-table .name{
-    min-width: 500px;
+    min-width: 400px;
 }
 .consultation-table .group{
-    min-width: 300px;
+    min-width: 200px;
 }
 /**---------------LOGIN-AND-REGISTER-----*/
 .form{
