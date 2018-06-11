@@ -1,35 +1,102 @@
 <?php
+/**
+ * Стартует консультацию
+ * @return bool
+ */
+function _consultStart():bool{
+    if(!empty($_SESSION['id_active_consult'])) return false;
+    $date = date("Y-m-j");
+    $time = date("H:i:s");
+    $idAdmin = $_SESSION['user_id'];
 
-function model_humans_add(string $name,string $surname,int $year):void{
-    core_appendToArrayInFile("humans",[
-        "id"=>time(),
-        "name"=>$name,
-        "surname"=>$surname,
-        "year"=>$year,
-    ]);
+    $users = _auth_getUsersArray();
+    $i=0;
+    foreach ($users as $user)
+        if($user['id'] == $idAdmin){$i=1;break;}
+    if($i!=1) return false;
 
+    $data = [
+        "id"=>getRandomId(),
+        "id_admin"=>$idAdmin,
+        "date_start"=>$date,
+        "time_start"=>$time,
+        "date_end"=>'',
+        "time_end"=>''
+    ];
+    $_SESSION['id_active_consult'] = $data['id'];
+    core_appendToArrayInFile("consult", $data);
+    return true;
 }
 
-
-function model_humans_getAll():array {
-    return core_loadArrayFromFile("humans");
-}
-
-
-function model_humans_getById(int $id){
-    $humans = model_humans_getAll();
-    foreach ($humans as $human){
-       if($human["id"]==$id)return $human;
+/**
+ * Завершает консультацию
+ * @return bool
+ */
+function consult_end(){
+    $studentsOnConsult = core_loadArrayFromFile('consult');
+    $date = date("Y-m-j");
+    $time = date("H:i:s");
+    foreach ($studentsOnConsult as &$consult){
+        if($consult['id'] == $_SESSION['id_active_consult']){
+            $consult["date_end"]=$date;
+            $consult["time_end"]=$time;
+            break;
+        }
     }
-    return NULL;
+    core_saveArrayToFile("consult", $studentsOnConsult);
+    unset($_SESSION['id_active_consult']);
+    return true;
 }
 
-
-function model_humans_deleteById(int $id):void{
-    $humans = model_humans_getAll();
-    $res = [];
-    foreach ($humans as $human){
-        if ($human["id"]!=$id) $res[]= $human;
+/**
+ * Проверяет еть ли активная консультация
+ * @return bool
+ */
+function consult_isStart():bool{
+    $list = core_loadArrayFromFile("consult");
+    $i=0;
+    foreach ($list as $consult){
+        if($consult['id'] == @$_SESSION['id_active_consult'] && $consult['id_admin'] == $_SESSION["user_id"] && $consult['date_end'] == ''){
+            $i=1;
+            break;
+        }
     }
-    core_saveArrayToFile("humans",$res);
+    if($i!=1) return false;
+    return true;
+}
+
+/**
+ * Возвращает инфо о консульации
+ * @param $id
+ * @return array [длительность, колл_студентов]
+ */
+function consult_getInfo($id){
+    core_loadModel("admin_student");
+    $consults = core_loadArrayFromFile('consult');
+    $time = '';
+    foreach ($consults as $consult) {
+        if ($consult['id'] == $id) {
+            $time = core_getDeltaTime($consult['time_end'],$consult['time_start']);
+            break;
+        }
+    }
+    return ["time"=>$time,"countStudent"=>student_getCountAllOnConsult($id)];
+}
+
+/**
+ * Возвращает список консультаций пользователя
+ * @return array
+ */
+function consult_getList():array {
+    core_loadModel("admin_student");
+    $consults = core_loadArrayFromFile("consult");
+    $list = [];
+    foreach ($consults as $consult){
+        if($consult['id_admin']==$_SESSION['user_id']){
+            $consult['delta_time'] = $consult['time_end']==''?"Не закончена":core_getDeltaTime($consult['time_end'],$consult['time_start']);
+            $consult['count_student'] = $consult['time_end']==''?"-":student_getCountAllOnConsult($consult['id']);
+            $list[]=$consult;
+        }
+    }
+    return $list;
 }

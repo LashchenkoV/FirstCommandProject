@@ -59,10 +59,5 @@
 </div>
 <div class="modal" id = "addStudent"></div>
 <div class="content">
-    <?php
-        if(consult_isStart())
-            echo $contentStartConsult;
-        else
-            echo $contentNoStartConsult;
-    ?>
+    <?=$content?>
 </div>

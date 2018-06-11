@@ -2,13 +2,11 @@
 
 session_start();
 
-function _auth_getUsersArray()
-{
+function _auth_getUsersArray(){
     return core_loadArrayFromFile("users");
 }
 
-function _auth_saveUsersArray($users)
-{
+function _auth_saveUsersArray($users){
     core_saveArrayToFile("users", $users);
 }
 
@@ -16,7 +14,6 @@ function _auth_getUserById($id){
     foreach (_auth_getUsersArray() as $u) if($u["id"]==$id) return $u;
     return NULL;
 }
-
 
 function auth_register(string $login, string $pass1, string $pass2): bool
 {

@@ -2,11 +2,10 @@
 return [
     ""=>"main@index",
     "admin"=>'admin@index',
-    "admin/list"=>'admin@list',
     "admin/start"=>'admin@startConsult',
     "admin/addStudentInConsultAndJson"=>'admin@addStudentInConsultAndJson',
     "admin/addStudentOnConsult"=>"admin@addStudentOnConsult",
-    "admin/consult"=>'admin@getTableStudentsView',
+    "admin/consult"=>'admin@getContentTable',
     "admin/getInfoStudent"=>"admin@getInfoStudent",
     "admin/modalAddStudent"=>"admin@getModalAddStudent",
     "admin/groupList"=>"admin@getGroupList",
@@ -16,7 +15,9 @@ return [
     "login"=>"main@login",
     "register"=>"main@register",
     "reg"=>"main@reg",
-    "logout"=>"main@logout"
+    "logout"=>"main@logout",
+
+    "admin/list"=>'list@list',
 ];
 
 

@@ -55,6 +55,7 @@ admin.modalAddStudent = {
         }.bind(this))
     },
     updateTable:function () {
+        //window.location.href = '/admin'
         AJAX.post("/admin/consult",[],function (text) {
             this.table.innerHTML=text;
             admin.init();
@@ -156,7 +157,7 @@ admin.modalAddStudent.tabNewStudent = {
             text = JSON.parse(text);
             modal.close(admin.modalAddStudent.modal);
             if(text.status == '0'){
-                modal.open(admin.modalAddStudent.modalError, "Ошибка "+text.error)
+                modal.open(admin.modalAddStudent.modalError, text.error)
                 return false;
             }
             //Обновляем таблицу

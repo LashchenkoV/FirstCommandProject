@@ -35,7 +35,7 @@
                     <td><?=$consult['delta_time']?></td>
                     <td><?=$consult['count_student']?></td>
                     <td class="option">
-                        <a href="/admin/consult/?id=<?=$consult['id']?>" target="_blank"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a href="/admin/list/?id=<?=$consult['id']?>" target="_blank"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         <a href="#" class="btn-close"><i class="fa fa-times" aria-hidden="true"  data-modal-open="confirm"></i></a>
                     </td>
                 </tr>

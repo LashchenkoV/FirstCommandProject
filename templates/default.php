@@ -9,6 +9,7 @@
     <title><?=$title?></title>
     <link rel="stylesheet" href="/content/css/font-awesome.min.css">
     <link rel="stylesheet" href="/content/css/main.css">
+    <script type="text/javascript" src="/content/js/anime.min.js"></script>
     <script type="text/javascript" src="/content/js/script.js"></script>
     <script type="text/javascript" src="/content/js/ajax.js"></script>
     <script type="text/javascript" src="/content/js/register.js"></script>
@@ -26,7 +27,7 @@
             <a href="#"><i  data-modal-close="error" class="fa fa-window-close" aria-hidden="true"></i></a>
         </div>
     </div>
-    <p id="modal-text"></p>
+    <p class="modal-text"></p>
 </div>
     <?=$content?>
 <script>
