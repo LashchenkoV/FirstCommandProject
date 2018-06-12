@@ -39,19 +39,18 @@ function _core_render_view($view,$data){
 function core_render_view($view,$data=[]){
     return _core_render_view(VIEWS_PATH.$view,$data);
 }
+
 function core_render_template($template,$data=[]){
     return _core_render_view(TEMPLATES_PATH.$template,$data);
 }
-
 
 function core_render(string $view, array $data=[], string $templates="default"):string {
     $data["content"] = core_render_view($view,$data);
     return core_render_template($templates,$data);
 }
 
-
 function core_loadModel(string $name):void{
-  include MODELS_PATH."$name.php";
+  include_once MODELS_PATH."$name.php";
 }
 
 function is_empty():bool {
@@ -64,6 +63,7 @@ function getRandomId():string{
 }
 
 function core_getDeltaTime($end,$start){
+    if($end=='') return "Не окончена";
     return date("H:i:s", mktime(0, 0, strtotime($end)-strtotime($start)));
 }
 

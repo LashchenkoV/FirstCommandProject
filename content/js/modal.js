@@ -32,6 +32,7 @@ let modal = {
         anime({
             targets: modal,
             scaleY:0,
+            scaleX:0,
             duration:500,
             complete:function () {
                 document.getElementById("bg-layer").style.display="none";
@@ -45,6 +46,7 @@ let modal = {
         anime({
             targets: modal,
             scaleY:1,
+            scaleX:1,
             duration:500,
             run:function () {
                 modal.style.display = "block";

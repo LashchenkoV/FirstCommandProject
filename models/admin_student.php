@@ -75,6 +75,27 @@ function student_getAllOnConsult($idConsult):array {
 }
 
 /**
+ * Возвращает список студентов конкретной консультации
+ * @param $idConsult
+ * @return array
+ */
+function student_getListStudentsOnConsult($idConsult){
+    core_loadModel("admin_group");
+    $studentsOnConsult = student_getAllOnConsult($idConsult);
+    $studentsAll = core_loadArrayFromFile('students');
+    $returnArr = [];
+    foreach ($studentsAll as $studentA){
+        foreach ($studentsOnConsult as $student) {
+            if ($studentA['id'] == $student['id_student']){
+                $studentA['name_group']=group_getName($studentA['id_group']);
+                $returnArr[]= $studentA;
+            }
+        }
+    }
+    return $returnArr;
+}
+
+/**
  * Возвращает список студентов конкретной группы
  * @param $group_id
  * @return array

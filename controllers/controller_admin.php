@@ -121,5 +121,4 @@ function action_startConsult(){
         return json_encode(["start"=>"0", "error"=>"Ошибка старта консультации!"]);
     else
         return json_encode(["start"=>"1"]);
-
 }

@@ -7,8 +7,8 @@
         <a id="#" href="#"><i class="fa fa-plus addStudent" aria-hidden="true"></i></a>
     </div>
 </div>
-<div class="consultation-table">
-    <table>
+<div>
+    <table class="consultation-table">
         <thead>
         <tr>
             <th class="name">Студент</th>

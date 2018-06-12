@@ -70,17 +70,17 @@ function consult_isStart():bool{
  * @param $id
  * @return array [длительность, колл_студентов]
  */
-function consult_getInfo($id){
+function consult_getInfo($id):array {
     core_loadModel("admin_student");
     $consults = core_loadArrayFromFile('consult');
-    $time = '';
     foreach ($consults as $consult) {
         if ($consult['id'] == $id) {
-            $time = core_getDeltaTime($consult['time_end'],$consult['time_start']);
-            break;
+            $consult['time'] = core_getDeltaTime($consult['time_end'],$consult['time_start']);
+            $consult['countStudent'] = student_getCountAllOnConsult($id);
+            return $consult;
         }
     }
-    return ["time"=>$time,"countStudent"=>student_getCountAllOnConsult($id)];
+    return [];
 }
 
 /**

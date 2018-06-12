@@ -39,37 +39,43 @@ a,select, input, a:visited{color: #e6e8ee}
 .title .info{display: flex}
 .title .time{margin-left: 40px}
 
-table{
+.consultation-table{
     width: 100%;
     margin-top: 10px;
     border-spacing: 0;
     border-collapse: collapse;
 }
-table th, td{
+.consultation-table th, td{
     height: 20px;
     text-align: left;
     padding: 10px;
 }
-table tr:nth-child(even) {
+.consultation-table tr:nth-child(even) {
     background: #48647a;
 }
-table tr{
+.consultation-table tr{
      height: 50px;
 }
-table a{
+.consultation-table a{
     font-size: 20px;
     transition: 0.1s
 }
 .option{
     text-align: center;
 }
-table a:hover{color:#16a085}
+.consultation-table a:hover{color:#16a085}
 
 .consultation-table .name{
     min-width: 400px;
 }
 .consultation-table .group{
     min-width: 200px;
+}
+.min-table{
+    font-size: 15px;
+}
+.min-table td{
+    padding: 5px;
 }
 /**---------------LOGIN-AND-REGISTER-----*/
 .form{

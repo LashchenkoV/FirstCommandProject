@@ -21,8 +21,8 @@
     </ul>
 </div>
 <div class="content">
-    <div class="consultation-table">
-        <table>
+    <div>
+        <table class="consultation-table">
             <tr>
                 <th>Дата начала</th>
                 <th>Длительность</th>
