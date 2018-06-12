@@ -16,7 +16,6 @@ return [
     "register"=>"main@register",
     "reg"=>"main@reg",
     "logout"=>"main@logout",
-
     "admin/list"=>'list@list',
 ];
 

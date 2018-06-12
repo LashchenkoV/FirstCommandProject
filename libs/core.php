@@ -59,7 +59,7 @@ function is_empty():bool {
     return false;
 }
 
-function getRandomId():int{
+function getRandomId():string{
     return time().rand(0,9999);
 }
 
