@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Страница всех консультаций
+ * Страница всех консультаций, а так же подробнее о консультации(если есть GET[id])
  * @return string
  */
 function action_list(){
@@ -19,12 +19,4 @@ function action_list(){
         "title"=>"Список консультаций",
         "listConsult"=>consult_getList()
     ],"admin");
-}
-
-/**
- * Запускается при запросе списка всех консульатцяй
- * @return string
- */
-function action_list_consult(){
-    return core_render("listConsult",["title"=>"Список консультаций"], "admin");
 }

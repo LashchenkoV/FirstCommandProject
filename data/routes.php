@@ -12,11 +12,11 @@ return [
     "admin/studentList"=>"admin@getStudentList",
     "admin/deleteStudentFromConsult"=>"admin@deleteStudentFromConsult",
     "admin/endConsult"=>"admin@endConsult",
+    "admin/list"=>'list@list',
     "login"=>"main@login",
     "register"=>"main@register",
     "reg"=>"main@reg",
     "logout"=>"main@logout",
-    "admin/list"=>'list@list',
 ];
 
 
