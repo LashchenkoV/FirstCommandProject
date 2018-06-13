@@ -33,6 +33,10 @@ a,select, input, a:visited{color: #e6e8ee}
     justify-content:space-between;
     margin-bottom: 15px;
     font-size: 25px;
+    -moz-user-select: none; /* Mozilla Firefox */
+    -ms-user-select: none; /* Internet Explorer (не поддерживается) */
+    -o-user-select: none; /* Opera Presto (не поддерживается) */
+    -webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
 }
 .title .add-consultation a{margin-right: 35px;transition: 0.1s}
 .title .add-consultation a:hover{color:#16a085 ;}

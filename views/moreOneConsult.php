@@ -28,7 +28,7 @@
             <?php foreach($tableStudent as $student):?>
                 <tr>
                     <td><?=$student['info']?></td>
-                    <td><?=$student['name_group']?></td>
+                    <td><?=$student['group']?></td>
                 </tr>
             <?php endforeach;?>
         </table>

@@ -44,12 +44,14 @@ function student_getInfo(int $id) {
 }
 
 /**
- * Возвращает готовые данные для таблицы консультации
+ * Возвращает готовые данные для таблицы
+ * @param  $idConsult - если не передан, то берётся активная косультация
  * @return array
  */
-function student_getListForTable():array {
+function student_getListForTable($idConsult = NULL):array {
+    $idConsult = $idConsult==NULL?@$_SESSION['id_active_consult']:$idConsult;
     core_loadModel("admin_group");
-    $studOnConsult = student_getAllOnConsult(@$_SESSION['id_active_consult']);
+    $studOnConsult = student_getAllOnConsult($idConsult);
     $dataStudents = [];
     foreach ($studOnConsult as $on){
         $info = student_getInfo((int)$on['id_student']);
@@ -72,27 +74,6 @@ function student_getAllOnConsult($idConsult):array {
         if ($student['id_consult'] == $idConsult) $studOnConsult[] = $student;
     }
     return $studOnConsult;
-}
-
-/**
- * Возвращает список студентов конкретной консультации
- * @param $idConsult
- * @return array
- */
-function student_getListStudentsOnConsult($idConsult){
-    core_loadModel("admin_group");
-    $studentsOnConsult = student_getAllOnConsult($idConsult);
-    $studentsAll = core_loadArrayFromFile('students');
-    $returnArr = [];
-    foreach ($studentsAll as $studentA){
-        foreach ($studentsOnConsult as $student) {
-            if ($studentA['id'] == $student['id_student']){
-                $studentA['name_group']=group_getName($studentA['id_group']);
-                $returnArr[]= $studentA;
-            }
-        }
-    }
-    return $returnArr;
 }
 
 /**
