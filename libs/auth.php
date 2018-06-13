@@ -62,8 +62,8 @@ function auth_is_auth():bool{
 }
 
 function auth_logout(){
-//    core_loadModel("admin_consult");
-//    if(consult_isStart()) consult_end();
+    core_loadModel("admin_consult");
+    if(consult_isStart()) consult_end();
     session_destroy();
 }
 

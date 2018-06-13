@@ -13,6 +13,7 @@ return [
     "admin/deleteStudentFromConsult"=>"admin@deleteStudentFromConsult",
     "admin/endConsult"=>"admin@endConsult",
     "admin/list"=>'list@list',
+    "/admin/deleteConsult"=>"list@delConsult",
     "login"=>"main@login",
     "register"=>"main@register",
     "reg"=>"main@reg",

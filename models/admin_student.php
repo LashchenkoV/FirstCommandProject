@@ -31,6 +31,22 @@ function student_del(int $id):bool{
 }
 
 /**
+ * Удаляет всех студентов из конкретной консультации
+ * @param $idConsult
+ * @return bool
+ */
+function student_delAllFromConsult($idConsult){
+    $studentsOnConsult = core_loadArrayFromFile("studentsOnConsult");
+    $newListStudentsOnConsult = [];
+    foreach ($studentsOnConsult as $student){
+        if($student['id_consult']==$idConsult) continue;
+        else $newListStudentsOnConsult[]=$student;
+    }
+    core_saveArrayToFile("studentsOnConsult", $newListStudentsOnConsult);
+    return true;
+}
+
+/**
  * Возвращает инфо о студенте по id
  * @param $id
  * @return int

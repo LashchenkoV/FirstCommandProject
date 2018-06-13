@@ -207,3 +207,33 @@ admin.modalConfirmDeleteStudent = {
         }.bind(this));
     }
 };
+
+admin.modalConfirmDeleteConsult = {
+    init:function () {
+        this.modal = document.getElementById("confirm");
+        this.btnYes = this.modal.querySelector("#confirm-yes");
+        this.bindEvent();
+    },
+    bindEvent:function () {
+        document.addEventListener("click",this.openModalConfirm.bind(this));
+        this.btnYes.addEventListener("click",this.eventSendToServer.bind(this))
+    },
+    eventSendToServer:function(e){
+        let id = e.target.getAttribute("data-id");
+        AJAX.post("/admin/deleteConsult",{id:id},function (text) {
+            text = JSON.parse(text);
+            modal.close(this.modal);
+            if(text.status == '1') {
+                document.getElementById(id).outerHTML = "";
+                return false;
+            }
+            modal.open(document.getElementById("error"),"Ошибка удаления: "+text.info)
+        }.bind(this))
+    },
+    openModalConfirm:function (e) {
+        if(!e.target.matches("a[data-id].removeConsult i") || this.modal === undefined) return false;
+        let id = e.target.parentNode.getAttribute("data-id");
+        this.btnYes.setAttribute("data-id", id);
+        modal.open(this.modal, "Подтвердите удаление.");
+    }
+};

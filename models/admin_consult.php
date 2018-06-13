@@ -66,6 +66,24 @@ function consult_isStart():bool{
 }
 
 /**
+ * Удаляет консультацию и всё что с ней связано
+ * @param $id
+ * @return bool
+ */
+function delConsult($id){
+    core_loadModel("admin_student");
+    $consults = core_loadArrayFromFile("consult");
+    $newListConsult=[];
+    foreach ($consults as $consult){
+        if($consult['id']==$id) continue;
+        else $newListConsult[]=$consult;
+    }
+    core_saveArrayToFile("consult", $newListConsult);
+    student_delAllFromConsult($id);
+    return true;
+}
+
+/**
  * Возвращает инфо о консульации
  * @param $id
  * @return array [длительность, колл_студентов]
