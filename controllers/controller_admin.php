@@ -55,7 +55,7 @@ function action_getStudentList(){
  */
 function action_deleteStudentFromConsult(){
     core_loadModel("admin_student");
-    if(is_empty(@$_POST['id']) || !student_del((int)@$_POST['id']))
+    if(is_empty(@$_POST['id']) || !student_del(@$_POST['id']))
         return json_encode(["status"=>'0', 'info'=>student_getInfo($_POST['id'])]);
     else
         return json_encode(["status"=>'1']);

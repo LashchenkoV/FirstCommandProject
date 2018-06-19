@@ -21,7 +21,7 @@ function student_isOnConsult($idConsult, $idStudent){
  * @param int $id
  * @return bool
  */
-function student_del(int $id):bool{
+function student_del($id){
     $isStudentOnConsult = student_isOnConsult($_SESSION['id_active_consult'], $id);
     if($isStudentOnConsult == -1) return false;
     $studentsOnConsult = core_loadArrayFromFile("studentsOnConsult");
@@ -51,7 +51,7 @@ function student_delAllFromConsult($idConsult){
  * @param $id
  * @return int
  */
-function student_getInfo(int $id) {
+function student_getInfo($id) {
     $students = core_loadArrayFromFile('students');
     foreach ($students as $student){
         if($student['id']==$id) return $student;
@@ -64,14 +64,14 @@ function student_getInfo(int $id) {
  * @param  $idConsult - если не передан, то берётся активная косультация
  * @return array
  */
-function student_getListForTable($idConsult = NULL):array {
+function student_getListForTable($idConsult = NULL){
     $idConsult = $idConsult==NULL?@$_SESSION['id_active_consult']:$idConsult;
     core_loadModel("admin_group");
     $studOnConsult = student_getAllOnConsult($idConsult);
     $dataStudents = [];
     foreach ($studOnConsult as $on){
-        $info = student_getInfo((int)$on['id_student']);
-        $info['group'] = group_getName((int)$info['id_group']);
+        $info = student_getInfo($on['id_student']);
+        $info['group'] = group_getName($info['id_group']);
         $dataStudents[]= $info;
     }
     return $dataStudents;
@@ -82,7 +82,7 @@ function student_getListForTable($idConsult = NULL):array {
  * @param $idConsult
  * @return array
  */
-function student_getAllOnConsult($idConsult):array {
+function student_getAllOnConsult($idConsult){
     if($idConsult == null) return [];
     $studentsOnConsult = core_loadArrayFromFile('studentsOnConsult');
     $studOnConsult = [];
@@ -126,7 +126,7 @@ function student_getCountAllOnConsult($idConsult){
  * @param $info - имя, фамилия студента
  * @return bool
  */
-function student_add($groupId, $info):bool{
+function student_add($groupId, $info){
     core_loadModel("admin_group");
     $idGroup = group_isGroup($groupId)===false?group_addNew($groupId):$groupId;
     if($idGroup == false) return false;

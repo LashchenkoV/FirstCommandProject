@@ -17,7 +17,7 @@ function group_getList(){
  * @param $id
  * @return bool
  */
-function group_isGroup(int $id):bool{
+function group_isGroup($id){
     $groups = core_loadArrayFromFile('groups');
     foreach ($groups as $group)
         if($group['id']==$id) return true;
@@ -29,7 +29,7 @@ function group_isGroup(int $id):bool{
  * @param int $id
  * @return string|false
  */
-function group_getName(int $id){
+function group_getName($id){
     $groups = core_loadArrayFromFile('groups');
     foreach ($groups as $group)
         if($group['id']==$id) return $group['name'];
@@ -41,7 +41,7 @@ function group_getName(int $id){
  * @param $group - имя
  * @return int - id новой группы
  */
-function group_addNew(string $group):int{
+function group_addNew($group){
     define("ID_GROUP",getRandomId());
     $data = [
         "id"=>ID_GROUP,

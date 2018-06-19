@@ -3,7 +3,7 @@
  * Стартует консультацию
  * @return bool
  */
-function _consultStart():bool{
+function _consultStart(){
     if(!empty($_SESSION['id_active_consult'])) return false;
     $date = date("Y-m-j");
     $time = date("H:i:s");
@@ -52,7 +52,7 @@ function consult_end(){
  * Проверяет еть ли активная консультация
  * @return bool
  */
-function consult_isStart():bool{
+function consult_isStart(){
     $list = core_loadArrayFromFile("consult");
     $i=0;
     foreach ($list as $consult){
@@ -88,7 +88,7 @@ function delConsult($id){
  * @param $id
  * @return array [длительность, колл_студентов]
  */
-function consult_getInfo($id):array {
+function consult_getInfo($id){
     core_loadModel("admin_student");
     $consults = core_loadArrayFromFile('consult');
     foreach ($consults as $consult) {
@@ -105,7 +105,7 @@ function consult_getInfo($id):array {
  * Возвращает список консультаций пользователя
  * @return array
  */
-function consult_getList():array {
+function consult_getList(){
     core_loadModel("admin_student");
     $consults = core_loadArrayFromFile("consult");
     $list = [];
